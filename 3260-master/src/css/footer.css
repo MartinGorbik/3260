@@ -1,0 +1,23 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+#footer-fila-1{
+    background-color: #d4c6b8;
+}
+
+#footer-fila-2{
+    padding-top: 5px;
+    color: white;
+    background-color: #1f1f24;
+}
+
+#registro{
+    border-radius: 18px;
+    background-color: #534332d5;
+    font-size: 20px;
+    color: white;
+}

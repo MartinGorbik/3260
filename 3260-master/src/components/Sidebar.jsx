@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import '../css/PanelSidebar.css'
+//import '../css/sidebar.css'
 
 const Sidebar = () => {
   const [searchText, setSearchText] = useState('');
