@@ -1,0 +1,109 @@
+.header {
+  background-color: #1f1f24;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  flex: 1;
+}
+
+.logo {
+  height: auto;
+  width: auto;
+  margin-right: 20px;
+}
+
+.header-nav {
+  display: flex;  
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin-right: 30px;
+  font-size: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.search-input {
+  width: 300px;
+  height: 30px;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.search-icon {
+  cursor: pointer;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.person-icon {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.nav-list{
+  display: flex;
+  align-items: center;
+}
+
+
+/*Estilos al reducir la pantalla escritorio*/
+@media (max-width: 1140px) {
+  .search-container {
+    display: none; /* Oculta la barra de busqueda */
+  }
+}
+
+
+
+/* Estilos para abrir desde el Celu */
+@media (max-width: 768px) {
+  .header-nav,
+  .search-container {
+    display: none; /* Oculta los contenedores en el celu */
+  }
+
+  .icon-container {
+    margin-right: 20px; /* Ajusta el margen para los otros iconos en el celu */
+  }
+
+}
+

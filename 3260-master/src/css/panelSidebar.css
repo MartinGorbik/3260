@@ -1,0 +1,92 @@
+.panel-sidebar {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 20px;
+  transition: width 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  margin-top: 80px; 
+  background-color: #1f1f24;
+  width: 70px;
+  height: 100vh;
+}
+
+.panel-sidebar:hover {
+  width: 350px;
+  background-color: #1f1f24;
+}
+
+.menu-icon-inside {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  cursor: pointer;
+  color: white;
+}
+
+.list-group-item{
+  width: 300px;
+  background-color: #b8c6d4;
+}
+
+.search-container-sidebar{
+  padding-left: 5px;
+  padding-bottom: 20px;
+}
+
+.search-input-sidebar {
+  width: 305px;
+  height: 40px;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+
+.sidebar-content {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  transition-delay: 0s;
+}
+
+
+
+/*Control Responsive*/
+
+@media (min-width: 1140px) {
+  .search-container-sidebar {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Decoracion de las letras*/
+
+.letras{
+  display: flex;
+  justify-content: center;
+  color: white;
+  
+}
