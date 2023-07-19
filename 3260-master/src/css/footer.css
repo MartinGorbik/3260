@@ -7,17 +7,19 @@
   
 #footer-fila-1{
     background-color: #d4c6b8;
+    bottom: 0;
 }
 
 #footer-fila-2{
-    padding-top: 5px;
+    padding-top: 2px;
     color: white;
     background-color: #1f1f24;
+    bottom: 0;
 }
 
 #registro{
     border-radius: 18px;
     background-color: #534332d5;
-    font-size: 20px;
+    font-size: 13px;
     color: white;
 }

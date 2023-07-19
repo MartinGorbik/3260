@@ -1,4 +1,4 @@
-.header {
+.navbar-header {
   background-color: #1f1f24;
   width: 100%;
   color: white;
@@ -7,7 +7,7 @@
   align-items: center;
   padding: 10px;
 }
-
+/* 
 .header-left {
   display: flex;
   align-items: center;
@@ -85,25 +85,25 @@
 }
 
 
-/*Estilos al reducir la pantalla escritorio*/
+/*Estilos al reducir la pantalla escritorio
 @media (max-width: 1140px) {
   .search-container {
-    display: none; /* Oculta la barra de busqueda */
+    display: none; /* Oculta la barra de busqueda 
   }
 }
 
 
 
-/* Estilos para abrir desde el Celu */
+/* Estilos para abrir desde el Celu 
 @media (max-width: 768px) {
   .header-nav,
   .search-container {
-    display: none; /* Oculta los contenedores en el celu */
+    display: none; /* Oculta los contenedores en el celu 
   }
 
   .icon-container {
-    margin-right: 20px; /* Ajusta el margen para los otros iconos en el celu */
+    margin-right: 20px; /* Ajusta el margen para los otros iconos en el celu 
   }
 
 }
-
+ */
