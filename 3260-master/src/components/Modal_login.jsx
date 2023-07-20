@@ -45,10 +45,10 @@ function Example() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-danger" onClick={handleClose}>
+          <Button variant="outline-light" onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="outline-light" onClick={handleClose}>
+          <Button variant="light" onClick={handleClose}>
             Ingresar
           </Button>
         </Modal.Footer>

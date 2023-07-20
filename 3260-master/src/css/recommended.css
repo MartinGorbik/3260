@@ -1,4 +1,8 @@
-:root {
+body{
+  background-color: #E3DAC9;
+}
+
+/* :root {
     --angle: 45deg;
     --opacity: 0.5;
   }
@@ -25,7 +29,7 @@
     --border-size: 0.3rem;
     border: var(--border-size) solid transparent;
   
-    /* Paint an image in the border */
+    /* Paint an image in the border
     border-image: conic-gradient(
         from var(--angle),
         #1f1f24 0deg 45deg,
@@ -41,7 +45,7 @@
     background: rgb(255 255 255 / var(--opacity));
   }
   
-  /** show a warning in browers that don't support it **/
+  /** show a warning in browers that don't support it 
   .warning {
     margin: 2em;
     padding: 1em;
@@ -52,7 +56,7 @@
     padding: 0;
     text-align: center;
   }
-  /* Animate when Houdini is available */
+  /* Animate when Houdini is available 
   @supports (background: paint(houdini)) {
     @property --opacity {
       syntax: "<number>";
@@ -82,16 +86,46 @@
       animation: rotate 4s linear infinite, opacityChange 3s infinite alternate;
     }
   
-    /* Hide the warning */
+    /* Hide the warning 
     .warning {
       display: none;
     }
-  }
+  } */
 
-  .card {
-    margin: 0 auto;
-    float: none;
-    margin-bottom: 10px;
-    margin-top: 25px;
+  
+.card {
+  margin: 0 auto;
+  float: none;
+  width: 18rem;
+  padding: 0;
+  border: none;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+
+.cardImage[src$=".jpg"] {
+  height: 180px;
+  width: auto;
+}
+
+.cardImage.whiteImage {
+/* background-color: black; */
+filter: brightness(0.5);
+}
+
+.cardImage[src$=".png"] {
+  height: 180px;
+  width: auto;
+  padding-left: 15%;
+  padding-right: 15%
+}
+
+.button{
+  
+}
+
+
+
 
