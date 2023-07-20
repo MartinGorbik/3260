@@ -3,6 +3,7 @@ import { IoIosPerson, IoMdSearch } from 'react-icons/io';
 import logoImage from '../images/3260-logo.png';
 import '../css/header.css';
 import { Link } from 'react-router-dom';
+import ModalLogin from '../components/Modal_login';
 
 const Header = () => {
   const [searchText, setSearchText] = useState('');
@@ -15,9 +16,6 @@ const Header = () => {
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
   };
-
-
-
 
   
   return (
@@ -45,7 +43,7 @@ const Header = () => {
           <IoMdSearch size={40} className="search-icon" onClick={handleSearch} />
         </div>
         <div className="icon-container">
-            <IoIosPerson size={40} className="person-icon" />
+          <ModalLogin/>
         </div>
 
       </div>
