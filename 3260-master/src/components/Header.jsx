@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IoIosPerson, IoMdSearch } from 'react-icons/io';
+import { IoMdSearch } from 'react-icons/io';
 import logoImage from '../images/3260-logo.png';
 import '../css/header.css';
 import { Link } from 'react-router-dom';

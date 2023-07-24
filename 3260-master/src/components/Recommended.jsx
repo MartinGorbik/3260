@@ -31,6 +31,7 @@ function BasicExample() {
           <Button variant="link" className='align-self-end'>Ir al sitio</Button>
         </Card.Body>
       </Card>
+
     </Row>
   );
 }

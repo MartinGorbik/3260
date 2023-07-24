@@ -29,7 +29,7 @@ const PanelSidebar = () => {
     >
       {!isSidebarOpen && (
         <div className="menu-icon-inside">
-          <IoIosMenu size={45} />
+          <IoIosMenu size={55} />
         </div>
       )}
       

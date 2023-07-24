@@ -1,5 +1,5 @@
 .panel-sidebar {
-  position: fixed;
+  z-index: 1000;
   top: 40px;
   left: 0;
   display: flex;
@@ -8,7 +8,6 @@
   justify-content: flex-start;
   padding-top: 20px;
   transition: width 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  margin-top: 80px; 
   background-color: #1f1f24;
   width: 70px;
   height: 100vh;
@@ -21,6 +20,7 @@
 
 .menu-icon-inside {
   display: flex;
+  padding: 10px;
   justify-content: center;
   align-self: center;
   cursor: pointer;
@@ -48,7 +48,7 @@
 
 .sidebar-content {
   padding: 10px;
-  width: 100%;
+  width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,13 +58,12 @@
 }
 
 
-
 /*Control Responsive*/
 
 @media (min-width: 1140px) {
   .search-container-sidebar {
     display: none;
-  }
+  } 
 }
 
 

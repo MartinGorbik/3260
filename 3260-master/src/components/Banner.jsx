@@ -15,16 +15,17 @@ function ControlledCarousel() {
 
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-      <img className='img-carousel' src={ExampleCarouselImage1} alt=""/>
-      </Carousel.Item>
-      <Carousel.Item>
-      <img className='img-carousel' src={ExampleCarouselImage2} alt=""/>
-      </Carousel.Item>
-      <Carousel.Item>
-      <img className='img-carousel' src={ExampleCarouselImage3} alt=""/>
-      </Carousel.Item>
+    <Carousel id='banner' activeIndex={index} onSelect={handleSelect}>
+        <Carousel.Item>
+        <img className='img-carousel' src={ExampleCarouselImage1} alt=""/>
+        </Carousel.Item>
+        <Carousel.Item>
+        <img className='img-carousel' src={ExampleCarouselImage2} alt=""/>
+        </Carousel.Item>
+        <Carousel.Item>
+        <img className='img-carousel' src={ExampleCarouselImage3} alt=""/>
+        </Carousel.Item>
+
     </Carousel>
   );
 }

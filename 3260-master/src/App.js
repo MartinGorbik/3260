@@ -15,9 +15,19 @@ function App() {
     <Router>
       <div>
         <Header />
-        <Banner/>
-        <Recommended/>
-        {/* <PanelSidebar/> */}
+        <div className='d-flex '>
+          <PanelSidebar/>
+          <div className='d-flex flex-column flex-grow-1'>
+            <div className='d-flex flex-row '>
+            <Banner/>
+            </div>
+            <div className='d-flex flex-row flex-grow-auto' >
+            <Recommended/>          
+            </div>          
+
+          </div>  
+        </div>
+
         <Footer/>
       </div>
     </Router>
