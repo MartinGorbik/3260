@@ -84,6 +84,15 @@
   align-items: center;
 }
 
+li{
+  border-radius: 10px;
+}
+
+.selected{
+  background-color: #534332d5;
+  color: #1f1f24;
+}
+
 
 /*Estilos al reducir la pantalla escritorio*/
 @media (max-width: 1140px) {
