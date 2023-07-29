@@ -17,11 +17,26 @@ const Footer = () => {
 
     // Obtener los datos del formulario
     const usuario = {
-      nombre: document.getElementById("usuario").value,
-      email: document.getElementById("email").value,
-      contrasena: document.getElementById("contraseña").value,
-      repetircontraseña: document.getElementById("repetircontraseña").value,
+
+      
+        "nombre_Usuario": document.getElementById("nombre_Usuario").value,
+        "e-mail": document.getElementById("e-mail").value,
+        "password": document.getElementById("password").value,
+        "clienteId": 0,
+        "additionalProp1": {}
+    
+  
     };
+
+
+      fetch("http://[::1]:3000/usuarios/", {
+        method: "POST",
+        body: JSON.stringify(usuario),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
 
     // Mostrar los datos en la consola
     console.log(usuario);
@@ -59,7 +74,7 @@ const Footer = () => {
                 <Form.Label>Usuario</Form.Label>
                 <Form.Control
                   type="text"
-                  id="usuario"
+                  id="nombre_Usuario"
                   name="usuario"
                   placeholder="Ingrese un Usuario"
                   autoFocus
@@ -70,7 +85,7 @@ const Footer = () => {
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
-                  id="email"
+                  id="e-mail"
                   name="email"
                   placeholder="name@example.com"
                   autoFocus
@@ -81,8 +96,8 @@ const Footer = () => {
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                   type="text"
-                  id="contraseña"
-                  name="contraseña"
+                  id="password"
+                  name="password"
                   placeholder="Ingrese una contraseña"
                   autoFocus
                 />
@@ -92,9 +107,9 @@ const Footer = () => {
                 <Form.Label>Repetir Contraseña</Form.Label>
                 <Form.Control
                   type="text"
-                  id="repetircontraseña"
-                  name="repetircontraseña"
-                  placeholder="Ingrese una contraseña"
+                  id="repetircontrasena"
+                  name="repetircontrasena"
+                  placeholder="Repita su contraseña"
                   autoFocus
                 />
               </Form.Group>
@@ -112,6 +127,8 @@ const Footer = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+
 
 
     </div>

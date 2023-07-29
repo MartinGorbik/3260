@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Banner from './components/Banner';
 import Recommended from './components/Recommended';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Contacto from './components/Contacto';
 
 
 
@@ -22,13 +23,13 @@ function App() {
             <Banner/>
             </div>
             <div className='d-flex flex-row flex-grow-auto' >
-            <Recommended/>          
+            <Recommended/>            
             </div>          
-
+            <Contacto/>
+            <Footer/>
           </div>  
         </div>
-
-        <Footer/>
+        
       </div>
     </Router>
   );
