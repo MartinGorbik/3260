@@ -23,7 +23,7 @@ const PanelSidebar = () => {
 
   return (
     <div
-      className="panel-sidebar"
+      className="panel-sidebar col-1 "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
