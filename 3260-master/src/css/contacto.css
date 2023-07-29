@@ -1,0 +1,37 @@
+#formulario{
+    background-color: darkseagreen;
+}
+
+
+
+p{
+    font-size: larger;
+    font-weight: bold;
+}
+
+::placeholder{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bolder;
+}
+
+#formulario input{
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    border-color: rgb(90, 121, 101);
+    border-width: 10px
+}
+
+#formulario #mensaje{
+    height: 90px;
+    text-align: center;
+    resize: vertical;
+}
+
+#formulario .enviar{
+    background-color: rgb(131, 63, 23);
+}
+
+
+  
