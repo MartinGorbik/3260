@@ -9,7 +9,11 @@ import ExampleCarouselImage3 from '../images/logo_3.png';
 
 function BasicExample() {
   return (
-    <Row xs={1} md={2} className="g-3">
+    <div className='container mt-4 pb-2 pb-2' id='container'>
+      <Row className='text-center'>
+        <h4>Comercios recomendados</h4>
+      </Row>
+      <Row xs={1} md={2} className="g-3">
       <Card>
         <Card.Img className="cardImage whiteImage" variant="top" src={ExampleCarouselImage1} />
         <Card.Body className='d-flex flex-column'>
@@ -33,6 +37,8 @@ function BasicExample() {
       </Card>
 
     </Row>
+    </div>
+
   );
 }
 
