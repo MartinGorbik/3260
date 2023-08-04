@@ -62,7 +62,7 @@ const Footer = () => {
         </div>
       </div>
       
-      <Modal show={show} onHide={handleClose}>
+      <Modal className="modal-registro" show={show} onHide={handleClose} >
         <Modal.Header closeButton>
           <Modal.Title>Cree un Usuario</Modal.Title>
         </Modal.Header>
@@ -95,10 +95,11 @@ const Footer = () => {
               <Form.Group className="mb-3" id="exampleForm.ControlInput3">
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
                   placeholder="Ingrese una contraseña"
+                  required
                   autoFocus
                 />
               </Form.Group>
@@ -106,10 +107,11 @@ const Footer = () => {
               <Form.Group className="mb-3" id="exampleForm.ControlInput4">
                 <Form.Label>Repetir Contraseña</Form.Label>
                 <Form.Control
-                  type="text"
+                  type="password"
                   id="repetircontrasena"
                   name="repetircontrasena"
                   placeholder="Repita su contraseña"
+                  required
                   autoFocus
                 />
               </Form.Group>
@@ -119,10 +121,10 @@ const Footer = () => {
 
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="outline-light" onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="primary" id='crear' onClick={handleSubmit}>
+          <Button variant="light" id='crear' onClick={handleSubmit}>
             Crear usuario
           </Button>
         </Modal.Footer>

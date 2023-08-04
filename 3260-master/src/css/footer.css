@@ -21,3 +21,8 @@
     font-size: 20px;
     color: white;
 }
+
+.modal-registro .modal-content {
+    background-color: #1f1f24;
+    color: #fff;
+}
