@@ -1,8 +1,9 @@
 #formulario{
-    background-color: darkseagreen;
+    background-color:  #ccbba2;
+
+    border: 5px solid rgb(65, 24, 24);
+    border-radius: 10px;
 }
-
-
 
 p{
     font-size: larger;
@@ -16,11 +17,12 @@ p{
 }
 
 #formulario input{
+    background-color: #f5eee5;
     height: 50px;
     border-radius: 10px;
     text-align: center;
     border-color: rgb(90, 121, 101);
-    border-width: 10px
+    border-width: 5px
 }
 
 #formulario #mensaje{
@@ -33,5 +35,9 @@ p{
     background-color: rgb(131, 63, 23);
 }
 
+#crear{
+    text-align: center;
+    font-size: 22px
+}
 
   
