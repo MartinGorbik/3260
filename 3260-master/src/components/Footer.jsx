@@ -32,7 +32,7 @@ const Footer = () => {
       <div className="container-fluid">
         <div className="row" id='footer-fila-1'>
           <div className="col d-flex justify-content-center align-items-center">
-            <h3>"Su negocio merece ser conocido"</h3>
+            <h3 id='foot-phrase'>"Su negocio merece ser conocido"</h3>
             <div className='d-flex p-4'>
                 <Button type='button' className='btn' id='registro' onClick={handleShow}>
                 Regístrese
