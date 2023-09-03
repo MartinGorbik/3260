@@ -4,15 +4,14 @@ import { Form, Button, Modal } from 'react-bootstrap';
 const CargarImagen = ({ onImageUpload }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [imageData, setImageData] = useState(null); // Almacena los datos de la imagen en base64
+  const [imageData, setImageData] = useState(null);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
 
-    // Muestra la vista previa de la imagen
     const reader = new FileReader();
     reader.onload = () => {
-      setImageData(reader.result.split(',')[1]); // Almacena la parte base64
+      setImageData(reader.result.split(',')[1]);
     };
     reader.readAsDataURL(event.target.files[0]);
   };
@@ -21,10 +20,10 @@ const CargarImagen = ({ onImageUpload }) => {
     if (selectedFile) {
       const reader = new FileReader();
       reader.onload = () => {
-        const base64Image = reader.result.split(',')[1]; // Obtiene la parte base64
-        onImageUpload(base64Image); // Pasa el archivo en base64
+        const base64Image = reader.result.split(',')[1];
+        onImageUpload(base64Image);
       };
-      reader.readAsDataURL(selectedFile); // Lee el archivo como base64
+      reader.readAsDataURL(selectedFile);
     }
     setShowModal(false);
   };
@@ -32,7 +31,7 @@ const CargarImagen = ({ onImageUpload }) => {
   return (
     <>
       <Button variant="primary" onClick={() => setShowModal(true)}>
-        Seleccione una imagen
+        Nueva imagen
       </Button>
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -45,6 +44,16 @@ const CargarImagen = ({ onImageUpload }) => {
               <Form.Label>Selecciona un archivo:</Form.Label>
               <Form.Control type="file" onChange={handleFileChange} />
             </Form.Group>
+            {imageData && (
+              <div>
+                <p>Vista previa de la imagen:</p>
+                <img
+                  src={`data:image/jpeg;base64,${imageData}`}
+                  alt="Vista previa"
+                  style={{ maxWidth: '100%' }}
+                />
+              </div>
+            )}
           </Form>
         </Modal.Body>
         <Modal.Footer>
