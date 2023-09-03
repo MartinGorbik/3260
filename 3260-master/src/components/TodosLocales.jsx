@@ -3,9 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import '../css/locales.css';
-import ExampleCarouselImage1 from '../images/logo_1.png';
-//import ExampleCarouselImage2 from '../images/logo_2.png';
-//import ExampleCarouselImage3 from '../images/logo_3.png';
+//import ExampleCarouselImage1 from '../images/logo_1.png';
 
 function TodosLocales() {
   const [data, setData] = useState([]);
@@ -15,11 +13,14 @@ function TodosLocales() {
       .then(response => response.json())
       .then(data => {
         setData(data); 
+        console.log(data);
       })
       .catch(error => {
         console.error("Error al obtener la lista de negocios:", error);
       });
   }, []); 
+
+  
 
   return (
     <div>
@@ -29,18 +30,27 @@ function TodosLocales() {
       </Row>
       </div>
       <div>
-        <Row xs={1} md={3} className="justify-content-md-center pt-2">
+        <Row xs={1} md={3} className="justify-content-md-center">
           {data.map((element, index) => (
             <Card key={index} className="cardLocal">
-              <Card.Img className="cardImage whiteImage" variant="top" src={ExampleCarouselImage1} />
-              <Card.Body className='d-flex flex-column'>
+              <div className="d-flex justify-content-center align-items-center">
+                <Card.Img
+                  className="cardImage whiteImage"
+                  variant="top"
+                  src={`data:image/jpeg;base64,${element.imagen1}`}
+                />
+              </div>
+              <Card.Body className="d-flex flex-column">
                 <Card.Title>{element.nombre}</Card.Title>
-                <Button variant="link" className='align-self-end'>Ir al sitio</Button>
+                <Button variant="link" className="align-self-end">
+                  Ir al sitio
+                </Button>
               </Card.Body>
             </Card>
           ))}
         </Row>
       </div>
+
     </div>
 
   );

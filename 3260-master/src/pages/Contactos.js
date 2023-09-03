@@ -1,10 +1,11 @@
 import React from 'react';
+import Contacto from '../components/Contacto';
 
 function Test() {
   return (
     <div>
       <h1>
-        Test de CONTACTOS
+        <Contacto/>
       </h1>
     </div>
   );

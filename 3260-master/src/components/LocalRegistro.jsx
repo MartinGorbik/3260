@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import CargarImagen from '../components/CargarImagen';
 import '../css/localRegistro.css'
 
 function LocalRegistro() {
+    const [imageData, setImageData] = useState(null);
+
+
+    const handleImageUpload = (base64Image) => {
+        // Al recibir los datos de la imagen, actualiza la variable de estado
+        setImageData(base64Image);
+        };
 
   const handleSubmit = (event) => {
       event.preventDefault();
@@ -18,21 +26,37 @@ function LocalRegistro() {
             "additionalProp1": {}
         };     
       
-      const negocios = {
+      const negocio = {
           'nombre' : document.getElementById('nombre').value,      
           'descripcion': document.getElementById('descripcion').value,
-          'direccion': domicilio
+          'direccion': domicilio,
+          'imagen1' : imageData
         };
 
+        
         fetch("http://[::1]:3000/negocios/", {
             method: "POST",
-            body: JSON.stringify(negocios),
+            body: JSON.stringify(negocio),
             headers: {
               "Content-Type": "application/json",
             },
-          });
-
-  console.log(negocios)
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("No se pudo crear el negocio");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              window.alert("Local Creado Correctamente");
+              //Aca deberia poner una redireccion hacia los locales probablemente
+              //window.location.href = "/otra-seccion";
+            })
+            .catch((error) => {
+              console.error("Error al crear el negocio:", error);            
+            });
+          
+  
 
 
   }
@@ -49,17 +73,31 @@ function LocalRegistro() {
         <div className='row d-flex align-self-center pt-3 pb-3' id='formulario'>
             <form onSubmit={handleSubmit}>
 
-                <div className='row pt-2'>
-                    <div>
+            <div className='row'>
+                  <div className='col-5 d-flex flex-column align-items-center text-center'>
+                        {imageData && (
+                          <img
+                            src={`data:image/jpeg;base64,${imageData}`}
+                            alt="Imagen cargada"
+                            style={{ maxWidth: '300px', maxHeight: '300px' }}
+                          />
+                        )}
+                        <div className='d-flex justify-content-center align-items-center'>
+                          <Button variant="secondary" className="btn-lg">
+                            <CargarImagen onImageUpload={handleImageUpload} />
+                          </Button>
+                        </div>
+                      </div>
+                    <div className='col-7'>
+                    <div className='pt-2'>
                         <p>Nombre de su Local: </p>
-                        <input className='w-100' type="text" name="nombre" id="nombre" placeholder='Inserte el nombre' />
+                        <input className='w-100' type="text" name="nombre" id="nombre" placeholder='Inserte el nombre del Local' />
                     </div>
-                </div>
 
-                <div className='row pt-2'>
-                    <div>
+                    <div className='pt-5'>
                         <p>Descripción de su Local: </p>
-                        <input className='w-100' type="text" name="descripcion" id="descripcion" placeholder='Inserte una descripción' />
+                        <input className='w-100' type="text" name="descripcion" id="descripcion" placeholder='Inserte una descripcion para su local'/>
+                    </div>
                     </div>
                 </div>
 
