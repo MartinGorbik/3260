@@ -1,0 +1,9 @@
+.marcoPrincipal{
+    border: 10px solid #000;
+    border-radius: 25px;
+}
+
+#contenedor{
+    max-height: 500px;
+    max-width: 500px;
+}
