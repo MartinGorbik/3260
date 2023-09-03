@@ -1,28 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
+import CargarImagen from '../components/CargarImagen';
 import Spinner from 'react-bootstrap/Spinner';
 import '../css/localRegistro.css'
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
-import CargarImagen from '../components/CargarImagen';
+import EspacioDisponible from '../images/EspacioDisponible.jpg';
 
 
-
-function findEmptyIndex(array) {
-  for (let i = 0; i < array.length; i++) {
-    if (!array[i]) {
-      return i; // Retorna el primer índice vacío encontrado
-    }
+function esBase64(str) {
+  try {
+    return btoa(atob(str)) === str;
+  } catch (err) {
+    return false;
   }
-  return -1; // Retorna -1 si no se encuentra ningún índice vacío
-} 
+}
 
 
 function LocalModificar() {
   const [data, setData] = useState([]);
-  const [imageData, setImageData] = useState(null);
+  const [imageData1, setImageData1] = useState(null);
+  const [imageData2, setImageData2] = useState(null);
+  const [imageData3, setImageData3] = useState(null);
+  const [imageData4, setImageData4] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const negocioId = '64f3a18af5e5601530bf19b7';
+  const fotos = [];
  
 
 
@@ -45,15 +48,69 @@ function LocalModificar() {
   }, [negocioId]);
 
 
+  if (data.imagen1 || fotos[1] || imageData1) {
+    fotos.push(data.imagen1 || fotos[1] || imageData1);
+  } else {fotos.push(EspacioDisponible)}
+  
+  if (data.imagen2 || fotos[2] || imageData2) {
+    fotos.push(data.imagen2 || fotos[2] || imageData2);
+  } else {fotos.push(EspacioDisponible)}
+  
+  if (data.imagen3 || fotos[3] || imageData3) {
+    fotos.push(data.imagen3 || fotos[3] || imageData3);
+  } else {fotos.push(EspacioDisponible)}
+  
+  if (data.imagen4 || fotos[4] || imageData4) {
+    fotos.push(data.imagen4 || fotos[4] || imageData4);
+  }  else {fotos.push(EspacioDisponible)}
+ 
 
   console.log(data)
 
-  const handleImageUpload = (base64Image) => {
+  const handleImageUpload1 = (base64Image) => {
     // Al recibir los datos de la imagen, actualiza la variable de estado
-    setImageData(base64Image);
+    setImageData1(base64Image);
   };
 
+  const handleBorrarImagen1 = () => {
+    // Establece imageData1 en null para borrar la imagen
+    setImageData1(null);
+    fotos[1] = (EspacioDisponible)
+    data.imagen1 = null
+  };
 
+  const handleImageUpload2 = (base64Image) => {
+    // Al recibir los datos de la imagen, actualiza la variable de estado
+    setImageData2(base64Image);
+  };
+  const handleBorrarImagen2 = () => {
+    // Establece imageData1 en null para borrar la imagen
+    setImageData2(null)
+    fotos[2] = (EspacioDisponible)
+    data.imagen2 = null
+  };
+
+  const handleImageUpload3 = (base64Image) => {
+    // Al recibir los datos de la imagen, actualiza la variable de estado
+    setImageData3(base64Image);
+  };
+  const handleBorrarImagen3 = () => {
+    // Establece imageData1 en null para borrar la imagen
+    setImageData3(null)
+    fotos[3] = (EspacioDisponible)
+    data.imagen3 = null
+  };
+
+  const handleImageUpload4 = (base64Image) => {
+    // Al recibir los datos de la imagen, actualiza la variable de estado
+    setImageData4(base64Image);
+  };
+  const handleBorrarImagen4 = () => {
+    // Establece imageData1 en null para borrar la imagen
+    setImageData4(null)
+    fotos[4] = (EspacioDisponible)
+    data.imagen4 = null
+  };
 
   const handleSubmit = (event) => {
       event.preventDefault();
@@ -79,17 +136,25 @@ function LocalModificar() {
       const nuevosAtributos = {
           'nombre' : nombre,      
           'descripcion': descripcion,
-          'direccion': domicilio
+          'direccion': domicilio,
         };
 
-        const emptyIndex = findEmptyIndex(data.domicilio.additionalProp1.imagenNegocio);
-        if (emptyIndex !== -1) {
-          // Si se encontró un índice vacío, guarda la imagen allí
-          data.domicilio.additionalProp1.imagenNegocio[emptyIndex] = imageData;
-        } else {
-          // Si no se encontró un índice vacío, muestra un mensaje de error o maneja la situación de otra manera
-          console.error('No hay índices vacíos disponibles para guardar la imagen.');
+        if (imageData1 !== null) {
+          nuevosAtributos['imagen1'] = imageData1;
         }
+        
+        if (imageData2 !== null) {
+          nuevosAtributos['imagen2'] = imageData2;
+        }
+        
+        if (imageData3 !== null) {
+          nuevosAtributos['imagen3'] = imageData3;
+        }
+        
+        if (imageData4 !== null) {
+          nuevosAtributos['imagen4'] = imageData4;
+        }
+
 
 
     fetch(`http://[::1]:3000/negocios/${negocioId}`, {
@@ -137,41 +202,69 @@ function LocalModificar() {
           </div>
       ) : (
 
-        
-
         <div className='row d-flex align-self-center pt-3 pb-3' id='formulario'>
             <form onSubmit={handleSubmit}>
-                <div className='row'>
-                  <div className='col-5 d-flex flex-column align-items-center text-center'>
-                        {imageData && (
-                          <img
-                            src={`data:image/jpeg;base64,${imageData}`}
-                            alt="Imagen cargada"
-                            style={{ maxWidth: '300px', maxHeight: '300px' }}
-                          />
-                        )}
-                        <div className='d-flex justify-content-center align-items-center'>
-                          <Button variant="secondary" className="btn-lg">
-                            <CargarImagen onImageUpload={handleImageUpload} />
-                          </Button>
-                        </div>
-                      </div>
-                    <div className='col-7'>
-                    <div className='pt-2'>
-                        <p>Nombre de su Local: </p>
-                        <input className='w-100' type="text" name="nombre" value={data.nombre} id="nombre"
-                         onChange={(e) => {setData({ ...data, nombre: e.target.value });}} />
+                <div className='col-12 d-flex flex-column align-items-center justify-content-center'>
+                  <div className='row d-flex p-2'>
+                    <div className='col-6 align-items-center justify-content-center'>
+                      <p>Imagen 1:</p>
+                      <img
+                          className="d-block w-100"
+                          src={esBase64(fotos[0]) ? `data:image/jpeg;base64,${fotos[0]}` : fotos[0]}
+                          style={{ maxWidth: '200px', maxHeight: '200px' }}
+                          alt='Imagen 1'
+                        />
+                      <CargarImagen onImageUpload={handleImageUpload1} />
+                      <Button variant="danger" onClick={handleBorrarImagen1}>Borrar</Button>
                     </div>
-
-                    <div className='pt-5'>
-                        <p>Descripción de su Local: </p>
-                        <input className='w-100' type="text" name="descripcion" value={data.descripcion}  id="descripcion"
-                        onChange={(e) => {setData({ ...data, descripcion: e.target.value });}}   />
+                    <div className='col-6 align-items-center justify-content-center'>
+                      <p>Imagen 2:</p>
+                      <img
+                          className="d-block w-100"
+                          src={esBase64(fotos[1]) ? `data:image/jpeg;base64,${fotos[1]}` : fotos[1]}
+                          style={{ maxWidth: '200px', maxHeight: '200px' }}
+                          alt='Imagen 1'
+                        />
+                      <CargarImagen onImageUpload={handleImageUpload2} />
+                      <Button variant="danger" onClick={handleBorrarImagen2}>Borrar</Button>
                     </div>
+                  </div>
+                  <div className='row d-flex p-2'>
+                    <div className='col-6 align-items-center justify-content-center'>
+                      <p>Imagen 3:</p>
+                      <img
+                          className="d-block w-100"
+                          src={esBase64(fotos[2]) ? `data:image/jpeg;base64,${fotos[2]}` : fotos[2]}
+                          style={{ maxWidth: '200px', maxHeight: '200px' }}
+                          alt='Imagen 1'
+                        />
+                      <CargarImagen onImageUpload={handleImageUpload3} />
+                      <Button variant="danger" onClick={handleBorrarImagen3}>Borrar</Button>
                     </div>
+                    <div className='col-6 align-items-center justify-content-center'>
+                      <p>Imagen 4:</p>
+                      <img
+                          className="d-block w-100"
+                          src={esBase64(fotos[3]) ? `data:image/jpeg;base64,${fotos[3]}` : fotos[3]}
+                          style={{ maxWidth: '200px', maxHeight: '200px' }}
+                          alt='Imagen 1'
+                        />
+                      <CargarImagen onImageUpload={handleImageUpload4} />
+                      <Button variant="danger" onClick={handleBorrarImagen4}>Borrar</Button>
+                    </div>
+                  </div>
                 </div>
-                   
+                <div className='pt-2'>
+                    <p>Nombre de su Local: </p>
+                    <input className='w-100' type="text" name="nombre" value={data.nombre} id="nombre"
+                      onChange={(e) => {setData({ ...data, nombre: e.target.value });}} />
+                </div>
 
+                <div className='pt-5'>
+                    <p>Descripción de su Local: </p>
+                    <input className='w-100' type="text" name="descripcion" value={data.descripcion}  id="descripcion"
+                    onChange={(e) => {setData({ ...data, descripcion: e.target.value });}}   />
+                </div>                  
                 <div className='row  p-2'>
                     <p>Calle: </p>
                     <input type="text" name="calle" value={data.direccion.calle} id="calle"
