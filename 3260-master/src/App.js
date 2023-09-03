@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route exact path='/' Component={Home}></Route>
-          {/* <Route exact path='/locales' Component={Locales}></Route> */}
+          <Route exact path='/locales' Component={Locales}></Route>
           <Route exact path='/eventos' Component={Eventos}></Route>
           <Route exact path='/contactos' Component={Contactos}></Route>
         </Routes>

@@ -1,11 +1,20 @@
 import React from 'react';
+//import TodosLocales from '../components/TodosLocales';
+//import LocalRegistro from '../components/LocalRegistro';
+import LocalInfo from '../components/LocalInfo';
+import LocalModificar from '../components/LocalModificar';
+
+
+
+
+
+
 
 function Test() {
   return (
     <div>
-      <h1>
-        Test de LOCALES
-      </h1>
+      <LocalInfo/>
+      <LocalModificar/>          
     </div>
   );
 }
