@@ -40,6 +40,7 @@ const Footer = () => {
 
     // Mostrar los datos en la consola
     console.log(usuario);
+
   };
 
   return (
