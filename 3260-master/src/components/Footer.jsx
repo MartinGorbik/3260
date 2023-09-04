@@ -20,8 +20,9 @@ const Footer = () => {
 
       
         "nombre_Usuario": document.getElementById("nombre_Usuario").value,
-        "e-mail": document.getElementById("e-mail").value,
+        "email": document.getElementById("e-mail").value,
         "password": document.getElementById("password").value,
+        "admin": false,
         "clienteId": 0,
         "additionalProp1": {}
     
@@ -35,6 +36,15 @@ const Footer = () => {
         headers: {
           "Content-Type": "application/json",
         },
+      })
+      .then((data) => {
+                  
+        window.alert("Usuario creado con éxito");
+        window.location.reload();
+      })
+      .catch((error) => {
+          window.alert("Usuario creado con éxito");
+          window.location.reload();
       });
 
 
