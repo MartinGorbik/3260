@@ -1,9 +1,9 @@
 import React from 'react';
-import TodosLocales from '../components/TodosLocales';
-import PanelSidebar from '../components/PanelSidebar';
+//import TodosLocales from '../components/TodosLocales';
 //import LocalRegistro from '../components/LocalRegistro';
-/* import LocalInfo from '../components/LocalInfo';
-import LocalModificar from '../components/LocalModificar'; */
+import LocalInfo from '../components/LocalInfo';
+import LocalModificar from '../components/LocalModificar';
+import PanelSidebar from '../components/PanelSidebar';
 
 
 
@@ -46,7 +46,8 @@ function Test() {
       <div className='d-flex '>
         <PanelSidebar/>
         <div className='d-flex flex-column flex-grow-1'>
-          <TodosLocales/> 
+          <LocalInfo/>
+          <LocalModificar/> 
         </div>
       </div> 
       {/* <p className='price'>$500</p>

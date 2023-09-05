@@ -11,19 +11,19 @@ function Home() {
   return (
     <div>
       <div className='d-flex '>
-          <PanelSidebar/>
+        <PanelSidebar/>
       <div className='d-flex flex-column flex-grow-1'>
             <div className='d-flex flex-row '>
-            <Banner/>
+              <Banner/>
             </div>
             <div className='d-flex flex-row flex-grow-auto' >
-            <Recommended/>            
+              <Recommended/>            
             </div>    
             <div className='d-flex flex-row flex-grow-auto' >
-            <Locales/>            
+              <Locales/>            
             </div>       
-            <Contacto/>
-            <Footer/>
+              <Contacto/>
+              <Footer/>
           </div> 
       </div> 
     </div>

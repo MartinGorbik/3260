@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Contactos from '../pages/Contactos';
 //import '../css/sidebar.css'
 
 const Sidebar = () => {
@@ -14,69 +17,31 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar-content">
-      <div className="search-container-sidebar">
-        <div className="letras">
-          <h6>Realice su búsqueda:</h6>
+      <div className="sidebar-content">
+        <div className="list-group p-2">
+          <button type="button" className="list-group-item list-group-item-action">
+            <Link to="/mislocales">Mis locales</Link>
+          </button>
+          <button type="button" className="list-group-item list-group-item-action">
+            <Link to="/mislocales">Mis eventos</Link>
+          </button>
+          <button type="button" className="list-group-item list-group-item-action">
+            <Link to="/mislocales">Todos</Link>
+          </button>
         </div>
-        <input
-          type="text"
-          placeholder="Busque un Negocio o Evento"
-          value={searchText}
-          onChange={handleInputChange}
-          className="search-input-sidebar"
-          onKeyDown={handleSearch}
-        />
-      </div>
 
-      <div className="list-group p-2">
-        <button
-          type="button"
-          className="list-group-item list-group-item-action active"
-          aria-current="true"
-        >
-          Locales
-        </button>
-        <button type="button" className="list-group-item list-group-item-action">
-          Primera opcion que exista
-        </button>
-        <button type="button" className="list-group-item list-group-item-action">
-          Segunda opcion que exista
-        </button>
-      </div>
+        <div className="list-group p-2">
+          <button type="button" className="list-group-item list-group-item-action">
+            Mi cuenta
+          </button>
+        </div>
 
-      <div className="list-group p-2">
-        <button
-          type="button"
-          className="list-group-item list-group-item-action active"
-          aria-current="true"
-        >
-          Eventos
-        </button>
-        <button type="button" className="list-group-item list-group-item-action">
-          Primera opcion que exista
-        </button>
-        <button type="button" className="list-group-item list-group-item-action">
-          Segunda opcion que exista
-        </button>
+        <div className="list-group p-2">
+          <button type="button" className="list-group-item list-group-item-action">
+          <Link to="/contactos">Contacto</Link>
+          </button>
+        </div>
       </div>
-
-      <div className="list-group p-2">
-        <button
-          type="button"
-          className="list-group-item list-group-item-action active"
-          aria-current="true"
-        >
-          Contacto
-        </button>
-        <button type="button" className="list-group-item list-group-item-action">
-          Primera opcion que exista
-        </button>
-        <button type="button" className="list-group-item list-group-item-action">
-          Segunda opcion que exista
-        </button>
-      </div>
-    </div>
   );
 };
 
