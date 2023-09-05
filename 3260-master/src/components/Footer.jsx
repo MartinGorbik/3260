@@ -12,44 +12,78 @@ const Footer = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  function contrasenasCoinciden (contrasena, copiaContrasena){
+    if (contrasena === copiaContrasena) 
+      return true;
+    }
+
+  function esContrasenaAceptable(contrasena) {
+    // Verificar si la contraseña tiene al menos 8 caracteres
+    if (contrasena.length < 8) {
+      return false;
+    }
+  
+    // Verificar si la contraseña contiene al menos una letra mayúscula
+    if (!/[A-Z]/.test(contrasena)) {
+      return false;
+    }
+  
+    // Verificar si la contraseña contiene al menos un número
+    if (!/\d/.test(contrasena)) {
+      return false;
+    }
+  
+    // Si la contraseña pasa todas las verificaciones, es aceptable
+    return true;
+  }
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Obtener los datos del formulario
-    const usuario = {
+    const contrasena = document.getElementById('password').value;
+    const copiaContrasena = document.getElementById('repetircontrasena').value;
 
-      
-        "nombre_Usuario": document.getElementById("nombre_Usuario").value,
-        "email": document.getElementById("e-mail").value,
-        "password": document.getElementById("password").value,
-        "admin": false,
-        "clienteId": 0,
-        "additionalProp1": {}
-    
+    if (esContrasenaAceptable(contrasena)) {      
+      if (contrasenasCoinciden (contrasena, copiaContrasena)) {
+                
+        const usuario = {     
+          "nombre_Usuario": document.getElementById("nombre_Usuario").value,
+          "email": document.getElementById("e-mail").value,
+          "password": document.getElementById("password").value,
+          "admin": false,
+          "clienteId": 0,
+          "additionalProp1": {}    
+          };
   
-    };
+        
+        fetch("http://[::1]:3000/usuarios/", {
+            method: "POST",
+            body: JSON.stringify(usuario),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+          .then((data) => {
+                      
+            window.alert("Usuario creado con éxito");
+            window.location.reload();
+          })
+          .catch((error) => {
+              window.alert("Usuario creado con éxito");
+              window.location.reload();
+          })        
 
-
-      fetch("http://[::1]:3000/usuarios/", {
-        method: "POST",
-        body: JSON.stringify(usuario),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((data) => {
-                  
-        window.alert("Usuario creado con éxito");
-        window.location.reload();
-      })
-      .catch((error) => {
-          window.alert("Usuario creado con éxito");
-          window.location.reload();
-      });
-
-
-    // Mostrar los datos en la consola
-    console.log(usuario);
+      } else {
+        // La contraseña no cumple con los requisitos
+        alert('La contraseñas no coinciden');
+      }
+      
+    } else {
+      // La contraseña no cumple con los requisitos
+      alert('La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.');
+    }
+ 
 
   };
 
