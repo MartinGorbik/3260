@@ -5,12 +5,14 @@ import Modal from 'react-bootstrap/Modal';
 import '../css/listaDeUsuarios.css'
 
 function ListaDeUsuarios() {
-    const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [mostrarModalConfirmacion, setMostrarModalConfirmacion] = useState(false);
-    const [usuarioAConvertir, setUsuarioAConvertir] = useState(null);
-    const [nuevosAtributos, setNuevosAtributos] = useState({});
-    const [borrar, setBorrar] = useState(false);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [mostrarModalConfirmacion, setMostrarModalConfirmacion] = useState(false);
+  const [usuarioAConvertir, setUsuarioAConvertir] = useState(null);
+  const [nuevosAtributos, setNuevosAtributos] = useState({});
+  const [borrar, setBorrar] = useState(false);
+  const [busqueda, setBusqueda] = useState(''); // Estado para almacenar el término de búsqueda
+  const [usuariosFiltrados, setUsuariosFiltrados] = useState([]);// Estado para almacenar los usuarios filtrados
     
           
     
@@ -112,12 +114,25 @@ function ListaDeUsuarios() {
       .then(data => {
         setData(data); 
         setIsLoading(false);
+        setUsuariosFiltrados(data);
         console.log(data);
       })
       .catch(error => {
         console.error("Error al obtener la lista de usuarios:", error);
       });
   }, []);
+
+
+  
+  const handleBuscarClick = () => {
+    // Filtrar los usuarios basados en la búsqueda
+    const usuariosCoincidentes = data.filter((usuario) =>
+      usuario.nombre_Usuario.toLowerCase().includes(busqueda.toLowerCase())
+    );
+
+    // Actualizar el estado con los usuarios filtrados o mostrar todos los usuarios si no hay búsqueda
+    setUsuariosFiltrados(busqueda ? usuariosCoincidentes : data);
+  };
 
   return (
     <div>
@@ -131,20 +146,37 @@ function ListaDeUsuarios() {
               <Spinner animation="grow" />;      
           </div>
       ) : (
-        <table className="table">
+        <div>
+          <div className='col-12 d-flex'>
+            <div className='d-flex col-6 align-items-center justify-content-center pb-4'>
+              <p>Ingrese un nombre de usuario a continuación:</p>
+            </div>
+            <div className='d-flex col-6 align-items-center justify-content-center pb-4'>
+              <input
+                type="text"
+                id='busqueda'
+                value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)}
+              />
+              <button id='buscar' onClick={handleBuscarClick}>
+                Buscar
+              </button>
+            </div>
+          </div>
+          <table className="table">
             <thead>
-            <tr>
+              <tr>
                 <th>Nombre de Usuario</th>
                 <th>ID de Usuario</th>
                 <th>Email</th>
                 <th>Admin</th>
                 <th>Acción 1</th>
                 <th>Acción 2</th>
-            </tr>
+              </tr>
             </thead>
-            <tbody>
-                {data.map(user => (
-                    <tr key={user.id_Usuario}>
+            <tbody>              
+              {usuariosFiltrados.map((user) => (
+                <tr key={user.id_Usuario}>
                         <td>{user.nombre_Usuario}</td>
                         <td>{user.id_Usuario}</td>
                         <td>{user.email}</td>
@@ -179,7 +211,9 @@ function ListaDeUsuarios() {
                     </tr>
                 ))}
             </tbody>
-        </table>    
+          </table>    
+        </div>
+        
 
       )}
 
@@ -210,6 +244,3 @@ function ListaDeUsuarios() {
 }
 
 export default ListaDeUsuarios;
-
-
-
