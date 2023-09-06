@@ -1,5 +1,10 @@
-.con-evento{
-    background-color: blue;
+.event-div strong{
+    font-size: 15px;
+    color: #63482bd5;
+}
+
+.event-div a{
+    text-decoration: none;
 }
 
 .dia-mes p{
@@ -7,7 +12,7 @@
     font-weight:bold;
 }
 
-.con-evento p {
+.con-evento #dia{
     font-size: 150%;
     font-weight:bold;
     color: #534332d5;
@@ -43,13 +48,8 @@ td{
     box-shadow: 0px 0px 30px #555050;
 }
 
-.card-img-top{
-    width: 298px; 
-    height: 200px; 
-    object-fit: cover;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-color: 1px solid #ccc;
+.card-text{
+    font-size: 12px;
 }
 
 .grilla-eventos {
@@ -83,5 +83,17 @@ body{
 @media screen and (min-width: 1000px){
     .con-evento p {
         display: block;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .con-evento strong{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .con-evento #btn-ver{
+        font-size: 12px;
     }
 }

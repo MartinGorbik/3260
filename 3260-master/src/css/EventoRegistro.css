@@ -1,0 +1,41 @@
+#formulario{
+    background-color:  #ccbba2;
+    border: 5px solid rgb(65, 24, 24);
+    border-radius: 10px;
+    display: flex;
+}
+
+p{
+    font-size: larger;
+    font-weight: bold;
+}
+
+::placeholder{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bolder;
+}
+
+#formulario input{
+    background-color: #f5eee5;
+    font-size: 20px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    border-color: rgb(90, 121, 101);
+    border-width: 5px
+}
+
+#formulario label{
+    font-size: larger;
+}
+
+#registrarNegocio,#cancelar{
+    text-align: center;
+    font-size: 22px
+}
+
+#descripcion{
+    width: 150px;
+    height: 205px;
+}
