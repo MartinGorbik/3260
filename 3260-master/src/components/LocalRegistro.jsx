@@ -32,6 +32,8 @@ function LocalRegistro() {
           'descripcion': document.getElementById('descripcion').value,
           'direccion': domicilio,
           "id_Usuario": user.id_Usuario,
+          'habilitado': false,
+          'premium': false,
           'imagen1' : imageData
         };
 

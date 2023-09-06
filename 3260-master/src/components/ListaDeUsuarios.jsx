@@ -136,7 +136,6 @@ function ListaDeUsuarios() {
 
   return (
     <div>
-
         <h1>Lista de Usuarios</h1>
                 {isLoading ? (
           <div className='d-flex display-content-center'>

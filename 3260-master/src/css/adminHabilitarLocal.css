@@ -1,0 +1,26 @@
+th{
+    font-size: 16px;
+}
+
+td{
+    font-size: 14px;
+    vertical-align: middle; 
+}
+
+p{
+    font-size: 22px;
+}
+
+input{
+    width: 300px;
+    height: 40px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 20px;    
+}
+
+#buscar{
+    padding-left: 2px;
+    height: 40px;
+    font-size: 20px;
+}

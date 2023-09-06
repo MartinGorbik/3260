@@ -9,7 +9,7 @@ import '../css/localInfo.css'
 function NegocioInfo() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const negocioId = '64f3a18af5e5601530bf19b7';
+  const negocioId = '64f77c1a118e1132d090e281';
   const fotos = [];
 
 
