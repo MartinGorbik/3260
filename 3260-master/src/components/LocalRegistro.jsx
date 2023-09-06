@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import CargarImagen from '../components/CargarImagen';
+import { useUser } from '../UserContext';
 import '../css/localRegistro.css'
 
 function LocalRegistro() {
     const [imageData, setImageData] = useState(null);
-
+    const { user } = useUser();
 
     const handleImageUpload = (base64Image) => {
         // Al recibir los datos de la imagen, actualiza la variable de estado
@@ -20,7 +21,7 @@ function LocalRegistro() {
             'calle' : document.getElementById('calle').value,
             'numero' : document.getElementById('numero').value,
             'ciudad': document.getElementById('ciudad').value,
-            'provincia': document.getElementById('provincia').value,
+            'provincia': document.getElementById('provincia').value,            
             "negocioId": "string",
             "clienteId": 0,
             "additionalProp1": {}
@@ -30,6 +31,7 @@ function LocalRegistro() {
           'nombre' : document.getElementById('nombre').value,      
           'descripcion': document.getElementById('descripcion').value,
           'direccion': domicilio,
+          "id_Usuario": user.id_Usuario,
           'imagen1' : imageData
         };
 

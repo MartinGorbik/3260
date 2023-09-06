@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import CargarImagen from '../components/CargarImagen';
+import { useUser } from '../UserContext';
 import Spinner from 'react-bootstrap/Spinner';
 import '../css/localRegistro.css'
 import Row from 'react-bootstrap/esm/Row';
@@ -18,13 +19,14 @@ function esBase64(str) {
 
 
 function LocalModificar() {
+  const { user } = useUser();
   const [data, setData] = useState([]);
   const [imageData1, setImageData1] = useState(null);
   const [imageData2, setImageData2] = useState(null);
   const [imageData3, setImageData3] = useState(null);
   const [imageData4, setImageData4] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const negocioId = '64f3a18af5e5601530bf19b7';
+  const negocioId = '64f77c1a118e1132d090e281';
   const fotos = [];
  
 
@@ -136,6 +138,7 @@ function LocalModificar() {
       const nuevosAtributos = {
           'nombre' : nombre,      
           'descripcion': descripcion,
+          "id_Usuario": user.id_Usuario,
           'direccion': domicilio,
         };
 
