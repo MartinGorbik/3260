@@ -18,7 +18,7 @@ function esBase64(str) {
 }
 
 
-function LocalModificar() {
+function LocalModificar({ idNegocio }) {
   const { user } = useUser();
   const [data, setData] = useState([]);
   const [imageData1, setImageData1] = useState(null);
@@ -26,7 +26,7 @@ function LocalModificar() {
   const [imageData3, setImageData3] = useState(null);
   const [imageData4, setImageData4] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const negocioId = '64f77c1a118e1132d090e281';
+  const negocioId = idNegocio;
   const fotos = [];
  
 
