@@ -5,7 +5,11 @@ import '../css/header.css';
 import { Link } from 'react-router-dom';
 import ModalLogin from '../components/Modal_login';
 
+
+
+
 const Header = () => {
+
   const [searchText, setSearchText] = useState('');
   const [selectedItem, setSelectedItem] = useState(null); // Estado para almacenar el ítem seleccionado
 
