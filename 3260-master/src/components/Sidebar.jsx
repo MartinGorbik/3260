@@ -25,9 +25,6 @@ const Sidebar = () => {
           <button type="button" className="list-group-item list-group-item-action">
             <Link to="/mislocales">Mis eventos</Link>
           </button>
-          <button type="button" className="list-group-item list-group-item-action">
-            <Link to="/mislocales">Todos</Link>
-          </button>
         </div>
 
         <div className="list-group p-2">
