@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Contactos from '../pages/Contactos';
 //import '../css/sidebar.css'
 
+
+
 const Sidebar = () => {
   const [searchText, setSearchText] = useState('');
 
@@ -15,6 +17,7 @@ const Sidebar = () => {
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
   };
+  
 
   return (
       <div className="sidebar-content">
@@ -27,11 +30,11 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <div className="list-group p-2">
+        {/* <div className="list-group p-2">
           <button type="button" className="list-group-item list-group-item-action">
-            Mi cuenta
+          <Link to="/micuenta">Mi cuenta</Link>
           </button>
-        </div>
+        </div> */}
 
         <div className="list-group p-2">
           <button type="button" className="list-group-item list-group-item-action">

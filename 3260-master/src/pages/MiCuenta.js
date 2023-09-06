@@ -1,9 +1,6 @@
 import React from 'react';
-import TodosLocales from '../components/TodosLocales';
+import DatosCuenta from '../components/DatosCuenta';
 import PanelSidebar from '../components/PanelSidebar';
-//import LocalRegistro from '../components/LocalRegistro';
-/* import LocalInfo from '../components/LocalInfo';
-import LocalModificar from '../components/LocalModificar'; */
 import { useUser } from '../UserContext';
 
 
@@ -12,11 +9,11 @@ function Test() {
   return (
     <div>
       <div className='d-flex '>
-      {user == null
+        {user == null
         ? null
         : <PanelSidebar/>}
         <div className='d-flex flex-column flex-grow-1'>
-          <TodosLocales/> 
+          <DatosCuenta/>
         </div>
       </div> 
     </div>

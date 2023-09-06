@@ -4,6 +4,7 @@ import logoImage from '../images/3260-logo.png';
 import '../css/header.css';
 import { Link } from 'react-router-dom';
 import ModalLogin from '../components/Modal_login';
+import { useUser } from '../UserContext';
 
 const Header = () => {
 
@@ -22,6 +23,15 @@ const Header = () => {
   const handleItemClick = (item) => {
     setSelectedItem(item); // Actualiza el estado con el ítem seleccionado
   };
+
+  const { user } = useUser();
+
+  function logOut(){
+    console.log('Has sido desconectado');
+    return user.useState(null);
+  }
+
+  console.log(user);
 
   return (
     <header className="header">
@@ -74,7 +84,11 @@ const Header = () => {
           <IoMdSearch size={40} className="search-icon" onClick={handleSearch} />
         </div>
         <div className="icon-container">
-          <ModalLogin />
+          {user == null
+            ? <ModalLogin />
+            : <Link onClick={logOut}>Logout</Link>
+          }
+          
         </div>
       </div>
     </header>

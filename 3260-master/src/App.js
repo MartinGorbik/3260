@@ -6,6 +6,7 @@ import Locales from './pages/Locales';
 import MisLocales from './pages/MisLocales';
 import Eventos from './pages/Eventos';
 import Contactos from './pages/Contactos';
+import MiCuenta from './pages/MiCuenta';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path='/eventos' Component={Eventos}></Route>
           <Route exact path='/contactos' Component={Contactos}></Route>
           <Route exact path='/mislocales' Component={MisLocales}></Route>
+          <Route exact path='/micuenta' Component={MiCuenta}></Route>
         </Routes>
       </div>
     </Router>

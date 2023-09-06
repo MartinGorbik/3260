@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PanelSidebar from '../components/PanelSidebar';
+<<<<<<< Updated upstream
 import TodosLocales from '../components/TodosLocales';
 import LocalRegistro from '../components/LocalRegistro';
 import { useUser } from '../UserContext';
@@ -17,6 +18,18 @@ function Test() {
     <div>
       <div className='d-flex '>
         <PanelSidebar />
+=======
+import { useUser } from '../UserContext';
+
+function Test() {
+  const {user} = useUser();
+  return (
+    <div>
+      <div className='d-flex '>
+      {user == null
+        ? null
+        : <PanelSidebar/>}
+>>>>>>> Stashed changes
         <div className='d-flex flex-column flex-grow-1'>
           {/* Botón para mostrar/ocultar LocalRegistro */}
           <Button onClick={toggleLocalRegistro}>
